@@ -1,0 +1,9 @@
+{% load static %}
+<link href="{% static 'polls/style.css' %}" rel="stylesheet"/>
+<ul>
+  {% for q in recents %}
+  <li><a href="{% url 'polls:detail' q.id %}">{{q.question_text}}</a></li>
+  {% empty %}
+  No polls.
+  {% endfor %}
+</ul>
