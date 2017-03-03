@@ -55,7 +55,6 @@ def profiles(request, id):
     """
     User's profile. Can be viewed by anoymous.
     """
-    print('user id: %d' % request.user.id)
     if int(id)==request.user.id:
         return HttpResponseRedirect(reverse('authen:profile'))
     else:
