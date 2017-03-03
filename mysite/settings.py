@@ -130,4 +130,4 @@ def deco(s):
 
 STATIC_URL = deco('/static/')
 LOGIN_URL = deco('/accounts/login/')
-# LOGIN_REDIRECT_URL = '/django/poem/'
+LOGIN_REDIRECT_URL = deco('/poem/')
