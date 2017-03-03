@@ -1,0 +1,21 @@
+{% extends "poem/layout_page.html" %}
+{% load i18n %}
+{% block main %}
+<form method="POST" id="poem" action="{% url 'poem:publish'  %}">
+  {% csrf_token %}
+  <span>{% trans "Title" %}</span>
+  <input name="title" type="text" value=""/>
+
+  <div class="input-field col s12">
+    <select name="type">
+       {% for type in types %}
+    <option value="{{ type.id }}">{{ type.name }}</option>
+    {% endfor %}
+    </select>
+    <label>{% trans "Type" %}</label>
+  </div>
+
+  <textarea cols="30" id="" name="content" rows="10"></textarea>
+  <input name="" type="submit" value="Publish"/>
+</form>
+{% endblock main %}

@@ -1,0 +1,9 @@
+{% extends "poem/layout_page.html" %}
+
+{% block main %}
+<h2>{{ poem.title }}</h2>
+<span><a href="{% url 'authen:profiles' poem.author.id %}">{{ poem.author.username}}</a></span>
+<p>
+{{  poem.content }}
+</p>
+{% endblock main %}

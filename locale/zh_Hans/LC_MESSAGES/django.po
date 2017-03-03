@@ -1,0 +1,71 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-03 14:50+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: authen/views.py:22
+msgid "Invalid login."
+msgstr "登录失败。"
+
+#: authen/views.py:37
+msgid "Username has been existed."
+msgstr "用户名已经存在。"
+
+#: poem/templates/poem/create.html:6
+msgid "Title"
+msgstr "标题"
+
+#: poem/templates/poem/create.html:15
+msgid "Type"
+msgstr "类型"
+
+#: poem/templates/poem/index.html:6
+msgid "Author"
+msgstr "作者"
+
+#: poem/templates/poem/index.html:8
+msgid "There is no poems at current."
+msgstr "当前没有作品。"
+
+#: poem/templates/poem/layout_page.html:12
+msgid "search"
+msgstr "搜索"
+
+#: poem/templates/poem/layout_page.html:17
+msgid "Home"
+msgstr "主页"
+
+#: poem/templates/poem/layout_page.html:20
+msgid "Profile"
+msgstr "我的"
+
+#: poem/templates/poem/layout_page.html:22
+msgid "Logout"
+msgstr "注销"
+
+#: poem/templates/poem/layout_page.html:25
+msgid "Login"
+msgstr "登录"
+
+#: poem/templates/poem/layout_page.html:27
+msgid "Register"
+msgstr "注册"
+
+#: templates/admin/base_site.html:3
+msgid "Django site admin"
+msgstr "Django 站点管理"

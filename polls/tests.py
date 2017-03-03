@@ -14,7 +14,7 @@ class QuestionViewTests(TestCase):
     def test_index_view_with_no_questions(self):
         response =self.client.get(reverse('polls:index'))
         self.assertEqual(response.status_code, 200)
-        print(response.content)
+        #print(response.content)
         self.assertContains(response, 'No polls.')
         self.assertQuerysetEqual(response.context['recents'], [])
 

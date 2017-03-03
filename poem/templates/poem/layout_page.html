@@ -1,0 +1,39 @@
+{% extends "poem/base.html" %}
+{% load static %}
+{% load i18n %}
+{% block body %}
+<header>
+      <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="material-icons">menu</i></a></div>
+      <ul id="nav-mobile" class="side-nav fixed">
+        <li class="logo"><a id="logo-container" href="{% url 'poem:index' %}" class="brand-logo">
+            <object id="front-page-logo" type="image/svg+xml" data="{% static 'poem/image/m.svg' %}">Your browser does not support SVG</object></a></li>
+        <li class="search">
+          <div class="search-wrapper card">
+            <input id="search"><i class="material-icons">{% trans "search" %}
+              </i>
+            <div class="search-results"></div>
+          </div>
+        </li>
+        <li class="bold"><a href="{% url 'poem:index'  %}" class="waves-effect waves-teal">{% trans "Home" %}
+        </a></li>
+        {% if user.is_authenticated %}
+        <li class="bold"><a href="{% url 'authen:profile' %}" class="waves-effect waves-teal">{% trans "Profile" %}
+            </a></li>
+        <li class="bold"><a href="{% url 'authen:logout' %}" class="waves-effect waves-teal">{% trans "Logout" %}
+        </a></li>
+        {% else %}
+        <li class="bold"><a href="{% url 'authen:login' %}" class="waves-effect waves-teal">{% trans "Login" %}
+        </a></li>
+        <li class="bold"><a href="{% url 'authen:register' %}" class="waves-effect waves-teal">{% trans "Register" %}
+        </a></li>
+        {% endif %}
+      </ul>
+</header>
+<main>
+  {% block main %}
+
+{% endblock main %}
+
+</main>
+
+{% endblock body %}

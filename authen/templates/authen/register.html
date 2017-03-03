@@ -1,0 +1,14 @@
+{% extends "authen/layout_registration.html" %}
+
+{% block form %}
+{% for message in messages  %}
+{{ message }}
+{% endfor  %}
+<form method="POST" action="{% url 'authen:register' %}">
+{% csrf_token %}
+<span>username</span>
+<input type="text" name="username" value="" />
+<input type="password" name="password" value="" />
+<input type="submit" name="" value="Register" />
+</form>
+{% endblock form %}

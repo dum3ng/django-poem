@@ -1,0 +1,12 @@
+{% extends 'poem/layout_page.html' %}
+
+{% block main %}
+{% for poem in poems %}
+<a href="{% url 'poem:detail' poem.id %}"><span>{{ poem.title }}</span></a>
+<span>{{ _("Author") }}: {{ poem.author.username }}</span>
+{% empty %}
+<h2>{{ _("There is no poems at current.") }}
+</h2>
+{% endfor %}
+
+{% endblock main %}

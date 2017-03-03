@@ -1,0 +1,13 @@
+{% extends "poem/layout_page.html" %}
+
+{% block main %}
+<h2>{{ user.username }}</h2>
+{% for poem in poems %}
+<a href="{% url 'poem:detail' poem.id %}"><span>{{ poem.title }}</span></a>
+<span>{{ poem.pub_date }}</span>
+<br>
+{% empty %}
+<h2>He/She has no poems now.</h2>
+{% endfor %}
+
+{% endblock main %}

@@ -1,0 +1,13 @@
+{% extends "poem/layout_page.html" %}
+
+{% block main %}
+<h1>Me:</h1>
+<span>My poems:</span>
+{% for poem in poems %}
+<span>{{ poem.pub_date }}</span>
+<div>{{ poem.title }}</div>
+{% empty %}
+You have no poems now.
+{% endfor %}
+
+{% endblock main %}

@@ -1,0 +1,8 @@
+<form action="{{ settings.LOGIN_URL }}" method="post">
+  {% csrf_token %}
+  <label for="username">username</label>
+  <input name="username" id="username" type="text" value=""/>
+  <p>password</p>
+  <input name="password" type="text" value=""/>
+  <input name="" type="submit" value="login"/>
+</form>
