@@ -124,7 +124,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
+SITE_PREFIX = '/django'
+def deco(s):
+    return SITE_PREFIX+s
 
-STATIC_URL = '/django/static/'
-LOGIN_URL = '/django/accounts/login/'
+STATIC_URL = deco('/static/')
+LOGIN_URL = deco('/accounts/login/')
 # LOGIN_REDIRECT_URL = '/django/poem/'

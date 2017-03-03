@@ -60,4 +60,4 @@ def profiles(request, id):
     else:
         user = get_object_or_404(User, id=id)
         poems = user.poem_set.all()
-        return render(request, 'authen/profiles.html', context={"user":user, "poems": poems})
+        return render(request, 'authen/profiles.html', context={"person":user, "poems": poems})
