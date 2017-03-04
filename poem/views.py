@@ -6,7 +6,7 @@ from django.shortcuts import render, render_to_response
 from django.contrib.auth.decorators import login_required
 import datetime
 
-from .models import Poem, Type
+from .models import Poem, Type, Comment
 # Create your views here.
 
 def index(request):
@@ -21,7 +21,10 @@ def detail(request, id):
     Show detail of a poem.
     """
     poem = get_object_or_404(Poem, id=id)
-    return render(request, 'poem/detail.html', context={"poem":poem})
+    comments = poem.comment_set.all().order_by('-pub_date')
+    for c in comments:
+        print('authro: %s' % c.author.username)
+    return render(request, 'poem/detail.html', context={"poem":poem, "comments":comments})
 
 @login_required
 def create(request):
@@ -45,6 +48,19 @@ def publish(request):
         poem = Poem(title=title, content=content, pub_date=timezone.now(), type_id=type_id, author=request.user)
         poem.save()
         return HttpResponseRedirect(reverse('authen:profile'))
+
+
+@login_required
+def comment(request, poem_id):
+    poem = get_object_or_404(Poem, id=int(poem_id))
+    if request.method=='POST':
+        content = request.POST['content']
+        user_id = request.POST['user_id']
+        #comment = Comment(content=content, poem_id=int(poem_id), author_id=int(user_id))
+        comment = Comment.create_now(content, int(poem_id), int(user_id))
+        comment.save()
+        return HttpResponseRedirect(reverse('poem:detail', args=(poem_id)))
+
 # APIs
 @login_required
 def like(request):

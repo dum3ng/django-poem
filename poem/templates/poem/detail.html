@@ -6,4 +6,18 @@
 <p>
 {{  poem.content }}
 </p>
+<form method="POST" action="{% url 'poem:comment' poem.id %}">
+  {% csrf_token %}
+  <input type="" name="user_id" value="{{ user.id }}" hidden />
+  <h4>{{ _('Comment') }}:</h4>
+  <input type="text" name="content" value="" />
+  <input type="submit" name="" value="{{ _('Submit') }}" />
+</form>
+{% for c in comments %}
+<span>{{ _('Author') }}: {{ c.author.username }}</span>
+<p>{{ c.content }}</p>
+{% empty %}
+{{ _("There are no comments now. Be the FIRST to comment!")}}
+{% endfor %}
+
 {% endblock main %}

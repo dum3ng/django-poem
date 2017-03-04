@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^edit/$', views.edit, name='edit'),
     url(r'^publish/$', views.publish, name='publish'),
     url(r'^detail/(?P<id>[0-9]+)/$', views.detail, name='detail'),
+    url(r'comment/(?P<poem_id>[0-9]+)/$', views.comment, name='comment'),
     url(r'^like/$', views.like, name='like'),
 ]

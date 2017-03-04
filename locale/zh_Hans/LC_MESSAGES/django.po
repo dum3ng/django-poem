@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-03 14:50+0800\n"
+"POT-Creation-Date: 2017-03-03 21:27+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: authen/views.py:22
-msgid "Invalid login."
-msgstr "登录失败。"
-
-#: authen/views.py:37
+#: authen/views.py:39
 msgid "Username has been existed."
 msgstr "用户名已经存在。"
 
@@ -33,6 +29,14 @@ msgstr "标题"
 #: poem/templates/poem/create.html:15
 msgid "Type"
 msgstr "类型"
+
+#: poem/templates/poem/detail.html:12
+msgid "Comment"
+msgstr "评论"
+
+#: poem/templates/poem/detail.html:14
+msgid "Submit"
+msgstr "确定"
 
 #: poem/templates/poem/index.html:6
 msgid "Author"
@@ -69,3 +73,6 @@ msgstr "注册"
 #: templates/admin/base_site.html:3
 msgid "Django site admin"
 msgstr "Django 站点管理"
+
+#~ msgid "Invalid login."
+#~ msgstr "登录失败。"
