@@ -1,0 +1,18 @@
+{% extends "poem/layout_page.html" %}
+
+{% block main %}
+<form method="POST" action="{% url 'poem:edit' poem.id %}">
+  {% csrf_token %}
+  <h3>{{ _("Title") }}</h3>
+  <input type="text" name="title" value="{{ poem.title }}" />
+  <select id="" name="type">
+    {% for type in types %}
+      <option value="{{ type.id }}" {% if type.id == poem.type_id %}selected {% endif %}>{{ type.name }}</option>
+      {% endfor %}
+  </select>
+  <textarea cols="30" id="" name="content" rows="10">{{ poem.content }}</textarea>
+  <input type="submit" name="" value="{{ _('Save')}}" />
+  
+</form>
+{% endblock main %}
+

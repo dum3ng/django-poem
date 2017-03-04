@@ -1,11 +1,12 @@
 {% extends "poem/layout_page.html" %}
 
 {% block main %}
-<h1>Me:</h1>
-<span>My poems:</span>
+<h1>{{ _("Me") }}({{ user.username }}):</h1>
+ <a href="{% url 'poem:create' %}" class="button">{{ _("New Poem") }}</a>
+<span>{{ _("My Poems") }}:</span>
 {% for poem in poems %}
 <span>{{ poem.pub_date }}</span>
-<div>{{ poem.title }}</div>
+<div><a href="{% url 'poem:detail' poem.id %}">{{ poem.title }}</a></div>
 {% empty %}
 You have no poems now.
 {% endfor %}

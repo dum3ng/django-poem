@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render, render_to_response
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import redirect_to_login
 import datetime
 
 from .models import Poem, Type, Comment
@@ -36,8 +37,18 @@ def create(request):
     return render(request, 'poem/create.html', {"user":request.user, "types": types})
 
 @login_required
-def edit(request):
-    return render(request, 'poem/edit.html')
+def edit(request, id):
+    if request.method =='POST':
+        poem = get_object_or_404(Poem, id=id)
+        poem.title = request.POST['title']
+        poem.type_id = request.POST['type']
+        poem.content = request.POST['content']
+        poem.save()
+        return HttpResponseRedirect(reverse('poem:detail', args=(poem.id,)))
+    else:
+        poem = get_object_or_404(Poem, id=id)
+        types = Type.objects.all()
+        return render(request, 'poem/edit.html', context={'poem':poem, 'types': types})
 
 @login_required
 def publish(request):
@@ -50,8 +61,9 @@ def publish(request):
         return HttpResponseRedirect(reverse('authen:profile'))
 
 
-@login_required
 def comment(request, poem_id):
+    if not request.user.is_authenticated:
+        return redirect_to_login(reverse('poem:detail', args=(poem_id,)))
     poem = get_object_or_404(Poem, id=int(poem_id))
     if request.method=='POST':
         content = request.POST['content']

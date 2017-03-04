@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-03 21:27+0800\n"
+"POT-Creation-Date: 2017-03-04 11:51+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: authen/templates/authen/profile.html:4
+msgid "Me"
+msgstr "我"
+
+#: authen/templates/authen/profile.html:5 poem/templates/poem/index.html:4
+msgid "New Poem"
+msgstr "写诗"
+
+#: authen/templates/authen/profile.html:6
+msgid "My Poems"
+msgstr "我的诗作"
+
 #: authen/views.py:39
 msgid "Username has been existed."
 msgstr "用户名已经存在。"
 
-#: poem/templates/poem/create.html:6
+#: poem/templates/poem/create.html:6 poem/templates/poem/edit.html:6
 msgid "Title"
 msgstr "标题"
 
@@ -30,19 +42,31 @@ msgstr "标题"
 msgid "Type"
 msgstr "类型"
 
-#: poem/templates/poem/detail.html:12
+#: poem/templates/poem/detail.html:6
+msgid "Edit"
+msgstr "修改"
+
+#: poem/templates/poem/detail.html:16
 msgid "Comment"
 msgstr "评论"
 
-#: poem/templates/poem/detail.html:14
+#: poem/templates/poem/detail.html:18
 msgid "Submit"
 msgstr "确定"
 
-#: poem/templates/poem/index.html:6
+#: poem/templates/poem/detail.html:21 poem/templates/poem/index.html:6
 msgid "Author"
 msgstr "作者"
 
-#: poem/templates/poem/index.html:8
+#: poem/templates/poem/detail.html:24
+msgid "There are no comments now. Be the FIRST to comment!"
+msgstr "尚未有人评论。"
+
+#: poem/templates/poem/edit.html:14
+msgid "Save"
+msgstr "保存"
+
+#: poem/templates/poem/index.html:10
 msgid "There is no poems at current."
 msgstr "当前没有作品。"
 
