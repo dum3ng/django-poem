@@ -1,4 +1,5 @@
 from django.http import HttpResponseRedirect
+from django.core import serializers
 from django.urls import reverse
 from django.utils import timezone
 from django.shortcuts import get_object_or_404
@@ -17,11 +18,11 @@ def index(request):
     poems = Poem.objects.all().order_by('-pub_date')[:20]
     return render(request, 'poem/index.html', context={"poems":poems})
 
-def detail(request, id):
+def detail(request, poem_id):
     """
     Show detail of a poem.
     """
-    poem = get_object_or_404(Poem, id=id)
+    poem = get_object_or_404(Poem, id=poem_id)
     comments = poem.comment_set.all().order_by('-pub_date')
     for c in comments:
         print('authro: %s' % c.author.username)
@@ -34,25 +35,27 @@ def create(request):
     """
     # TODO: validate the data
     types = Type.objects.all()
-    return render(request, 'poem/create.html', {"user":request.user, "types": types})
+    types_json = serializers.serialize('json', types)
+    return render(request, 'poem/create.html',
+                  {"user":request.user, "types": types, "types_json": types_json})
 
 @login_required
-def edit(request, id):
-    if request.method =='POST':
-        poem = get_object_or_404(Poem, id=id)
+def edit(request, poem_id):
+    if request.method == 'POST':
+        poem = get_object_or_404(Poem, id=poem_id)
         poem.title = request.POST['title']
         poem.type_id = request.POST['type']
         poem.content = request.POST['content']
         poem.save()
         return HttpResponseRedirect(reverse('poem:detail', args=(poem.id,)))
     else:
-        poem = get_object_or_404(Poem, id=id)
+        poem = get_object_or_404(Poem, id=poem_id)
         types = Type.objects.all()
         return render(request, 'poem/edit.html', context={'poem':poem, 'types': types})
 
 @login_required
 def publish(request):
-    if request.method=='POST':
+    if request.method == 'POST':
         type_id = request.POST['type']
         title = request.POST['title']
         content = request.POST['content']

@@ -16,13 +16,15 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
+from django.views.i18n import JavaScriptCatalog
 from . import index
 
-site_patterns  = [
+site_patterns = [
     url(r'^$', index.view),
     url(r'^accounts/', include('authen.urls')),
     url(r'^polls/', include('polls.urls')),
     url(r'^poem/', include('poem.urls')),
+    url(r'^jsi18n/$', JavaScriptCatalog.as_view(domain='django'), name='javascript-catalog'),
     url(r'^admin/', admin.site.urls),
 ]
 urlpatterns = [
