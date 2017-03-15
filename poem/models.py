@@ -27,7 +27,7 @@ class Poem(models.Model):
     likes = models.IntegerField(default=0)
 
     type = models.ForeignKey(Type, null=True, on_delete=models.SET_NULL)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User,related_name='poems', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
@@ -35,7 +35,7 @@ class Poem(models.Model):
 class Comment(models.Model):
     content = models.CharField(max_length=300, default='')
     pub_date = models.DateTimeField('comment created')
-    poem = models.ForeignKey(Poem, null=True, on_delete=models.SET_NULL)
+    poem = models.ForeignKey(Poem, null=True, related_name='comments', on_delete=models.SET_NULL)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

@@ -4,6 +4,7 @@ var NODE_MODULES = path.resolve(__dirname, 'node_modules')
 var config = {
   entry: {
     create: path.join(__dirname, 'poem/static/poem/src/create.jsx'),
+    poem: path.join(__dirname, 'poem/static/poem/src/index.jsx'),
   },
   output: {
     path: path.join(__dirname, 'poem/static/poem/dist/'),

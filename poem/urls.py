@@ -1,14 +1,14 @@
 from django.conf.urls import url
 
 from . import views
+from . import apis
 
 app_name = 'poem'
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
-    url(r'^create/$', views.create, name='create'),
-    url(r'^edit/(?P<poem_id>[0-9]+)$', views.edit, name='edit'),
-    url(r'^publish/$', views.publish, name='publish'),
-    url(r'^detail/(?P<poem_id>[0-9]+)/$', views.detail, name='detail'),
-    url(r'comment/(?P<poem_id>[0-9]+)/$', views.comment, name='comment'),
-    url(r'^like/$', views.like, name='like'),
+    url(r'api/poems/all/$', apis.poems, name='poems'),
+    url(r'api/poems/$', apis.user_profile, name='user_profile'),
+    url(r'api/poems/(?P<poem_id>[0-9]+)/detail/$', apis.detail, name='detail'),
+    url(r'api/poems/new/$', apis.create, name='create'),
+    url(r'api/poems/(?P<pome_id>[0-9]+)/update/$', apis.update, name='update'),
+    url(r'^.*', views.index, name='index'),
 ]

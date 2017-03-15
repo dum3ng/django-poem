@@ -1,14 +1,19 @@
-{% extends 'poem/layout_page.html' %}
-
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Document</title>
+  </head>
+  <body>
 {% block main %}
-  <a href="{% url 'poem:create' %}" class="button">{{ _("New Poem") }}</a>
-{% for poem in poems %}
-  <span>{{ _("Author") }}: {{ poem.author.username }}</span>
-<p><a href="{% url 'poem:detail' poem.id %}"><span>{{ poem.title }}</span></a>
-</p>
-{% empty %}
-<h2>{{ _("There is no poems at current.") }}
-</h2>
-{% endfor %}
-
+<div id="app"></div>
 {% endblock main %}
+
+{% block extra-script %}
+<script src="{% url 'javascript-catalog'  %}"></script>
+<script src="{% static 'poem/dist/poem-bundle.js' %}"></script>
+{% endblock extra-script %}
+
+  </body>
+</html>
