@@ -1,31 +1,38 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
+import CircularProgress from 'material-ui/Circularprogress'
 
 class Profiles extends Component {
   constructor(p) {
     super(p)
     this.state = {
-      poems: [],
+      profile: {},
     }
+
   }
-  componentDidMount() {
-    fetch(`/api/poem?author=${this.props.author.id}`)
-      .then(response => JSON.parse(response))
-      .then(ps => this.setState({ poems: ps }))
+  componentWillMount() {
+    fetch(`/django/poem/api/users/${this.props.match.params.user_id}`)
+      .then(response => response.json())
+      .then(json => this.setState({ profile: json }))
   }
   render() {
-    return (
+    const toRender = this.state.profile.username ? (
       <div>
-        <h3>{this.props.author.name}</h3>
+        <h3>{this.state.profile.username}</h3>
         <h4>poems:</h4>
-        {this.state.poems.map(poem => (
-                                    <Link to={`/${poem.id}/detail`}><p>{poem.title}</p></Link>
-                                    ))}
+        {this.state.profile.poems.map(poem => (
+          <div key={poem.id}>
+            <div><Link to={`/${poem.id}/detail/`}>{poem.title}</Link></div>
+          </div>
+        ))}
+      </div>
+    ) : (<CircularProgress />)
+    return (
+      <div >
+        {toRender}
       </div>
     )
   }
 }
-Profiles.propTypes = {
-  author: React.PropTypes.any.isRequired,
-}
+
 export default Profiles

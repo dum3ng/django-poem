@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-04 11:51+0800\n"
+"POT-Creation-Date: 2017-03-19 17:40+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Me"
 msgstr "我"
 
-#: authen/templates/authen/profile.html:5 poem/templates/poem/index.html:4
+#: authen/templates/authen/profile.html:5
 msgid "New Poem"
 msgstr "写诗"
 
@@ -34,41 +34,33 @@ msgstr "我的诗作"
 msgid "Username has been existed."
 msgstr "用户名已经存在。"
 
-#: poem/templates/poem/create.html:6 poem/templates/poem/edit.html:6
+#: poem/templates/poem/create.html:9 poem/templates/poem/edit.html:6
 msgid "Title"
 msgstr "标题"
-
-#: poem/templates/poem/create.html:15
-msgid "Type"
-msgstr "类型"
 
 #: poem/templates/poem/detail.html:6
 msgid "Edit"
 msgstr "修改"
 
-#: poem/templates/poem/detail.html:16
+#: poem/templates/poem/detail.html:17
 msgid "Comment"
 msgstr "评论"
 
-#: poem/templates/poem/detail.html:18
+#: poem/templates/poem/detail.html:19
 msgid "Submit"
 msgstr "确定"
 
-#: poem/templates/poem/detail.html:21 poem/templates/poem/index.html:6
+#: poem/templates/poem/detail.html:22
 msgid "Author"
 msgstr "作者"
 
-#: poem/templates/poem/detail.html:24
+#: poem/templates/poem/detail.html:25
 msgid "There are no comments now. Be the FIRST to comment!"
 msgstr "尚未有人评论。"
 
 #: poem/templates/poem/edit.html:14
 msgid "Save"
 msgstr "保存"
-
-#: poem/templates/poem/index.html:10
-msgid "There is no poems at current."
-msgstr "当前没有作品。"
 
 #: poem/templates/poem/layout_page.html:12
 msgid "search"
@@ -97,6 +89,12 @@ msgstr "注册"
 #: templates/admin/base_site.html:3
 msgid "Django site admin"
 msgstr "Django 站点管理"
+
+#~ msgid "Type"
+#~ msgstr "类型"
+
+#~ msgid "There is no poems at current."
+#~ msgstr "当前没有作品。"
 
 #~ msgid "Invalid login."
 #~ msgstr "登录失败。"

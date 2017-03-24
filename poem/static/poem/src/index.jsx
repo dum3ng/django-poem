@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import Home from './components/home'
 import Login from './components/login'
 import Register from './components/register'
+import Logout from './components/logout'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 
@@ -19,6 +20,7 @@ class PoemApp extends Component {
             <Switch>
             <Route path='/login' component={ Login } />
             <Route path='/register' component={ Register } />
+            <Route path='/logout' component={ Logout } />
             <Route  path='/' component={ Home } />
             <Route component={ NoMatch } />
             </Switch>

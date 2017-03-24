@@ -26,11 +26,22 @@ import { observable } from 'mobx'
 
 class Store {
   @observable isAuthenticated = false
+  @observable user = {}
   @observable poems = undefined
   @observable currentPoem = {}
+  @observable registerFrom = '/'
+  @observable loginFrom = '/'
 
   authen(b) {
     this.isAuthenticated = b
+  }
+  login(user) {
+    this.user = user
+    this.isAuthenticated = true
+  }
+  logout() {
+    this.user = {}
+    this.isAuthenticated = false
   }
 }
 

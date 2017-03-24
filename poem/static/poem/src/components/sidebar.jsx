@@ -9,23 +9,31 @@ import store from '../db'
 class Sidebar extends Component {
 
   render() {
-     const items = !this.props.store.isAuthenticated ? (<div>
-                                                   <MenuItem>
-                                                   <Link to='/login'>Login</Link>
-                                                   </MenuItem>
-                                                   <MenuItem>
-                                                   <Link to="/register">Register</Link>
-                                                   </MenuItem>
-                                                 </div>) : (<div>
-                                                              <MenuItem>
-                                                              <Link to="/profile">Me</Link>
-                                                              </MenuItem>
-                                                            </div>)
+    const items = !this.props.store.isAuthenticated ? (
+      <div>
+        <MenuItem>
+          <Link to='/login'>{gettext('Login')}</Link>
+        </MenuItem>
+        <MenuItem>
+          <Link to="/register">{gettext('Register')}</Link>
+        </MenuItem>
+      </div>) : (
+        <div>
+          <MenuItem>
+            <Link to="/profile">{gettext('Me')}</Link>
+          </MenuItem>
+          <MenuItem>
+            <Link to="/create/">{gettext('Create')}</Link>
+          </MenuItem>
+          <MenuItem>
+            <Link to="/logout/">{gettext('Logout')}</Link>
+          </MenuItem>
+        </div>)
 
     return (
-       <Drawer>
+      <Drawer>
         <MenuItem>
-        <Link to="/">Home</Link>
+          <Link to="/">Home</Link>
         </MenuItem>
         { items }
       </Drawer>

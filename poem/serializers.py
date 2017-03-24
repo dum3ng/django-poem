@@ -37,3 +37,19 @@ class PoemFullSerializer(serializers.ModelSerializer):
     class Meta:
         model = Poem
         fields = '__all__'
+
+class ProfileSerializer(serializers.ModelSerializer):
+    """
+    Return user profile and his/her poems.
+    """
+    poems = PoemSerializer(many=True)
+
+    class Meta:
+        model = User
+        fields = ['username', 'id', 'email', 'poems']
+
+class TypeSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Type
+        fields = '__all__'

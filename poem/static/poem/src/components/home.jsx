@@ -6,10 +6,12 @@ import { observer } from 'mobx-react'
 import store from '../db'
 import { connect } from '../rx-react'
 import Sidebar from './sidebar'
+import Profile from './Profile'
 import Profiles from './profiles'
 import Detail from './detail'
 import Create from './create'
 import Index from './index'
+import { wrapObservable } from '../utils'
 
 const routes = [
   {
@@ -38,39 +40,29 @@ const routes = [
   },
 ]
 
-const T1 = ()=> (<h1>This is test one!</h1>)
-const T2 = () => (<h2>This is test two 222!</h2>)
-const testRoutes = [
-  { path: '/home/t1', component: T1},
-  { path: '/home/t2', component: T2},
-]
 @observer
 class Home extends Component {
 
-  login = () => { this.props.store.isAuthenticated = true }
+
   render() {
     return (
       <div>
         <Sidebar />
-        <div style={ { marginLeft: 256 } }>
-          <button onClick={ this.login }>login</button>
+        <div className='main'>
           <Switch >
-            <Route exact path='/' component={Index}/>
-            <Route path='/:poem_id/detail/' component={Detail}/>
-      </Switch>
 
+            <Route path='/:poem_id/detail/' component={Detail} />
+            <Route path='/profile/' component={Profile} />
+            <Route path='/create/' component={Create} />
+            <Route path='/profiles/:user_id' component={Profiles} />
+             <Route  path="/" component={Index} />
+          </Switch>
         </div>
       </div>
     )
   }
 }
 
-// //test
-// const match = matchPath('/2/detail/',{path:'/:poem_id/detail/',
-//                                      },
-//                        )
-// console.log(`match: ${match}`, match)
+//const HomeWrap = props => <Home store={store} {...props} />
 
-const HomeWrap = () => <Home store={ store } />
-
-export default HomeWrap
+export default wrapObservable(Home)

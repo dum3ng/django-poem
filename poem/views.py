@@ -6,11 +6,13 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import render, render_to_response
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import redirect_to_login
+from django.views.decorators.csrf import ensure_csrf_cookie
 import datetime
+
 
 from .models import Poem, Type, Comment
 # Create your views here.
-
+@ensure_csrf_cookie
 def index(request):
     """
     Show all the rencent poems and hot poems.

@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-24 14:07+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: node_modules/babel-polyfill/browser.js:1
+#: node_modules/babel-polyfill/dist/polyfill.min.js:1
+msgid "delete"
+msgstr ""
+
+#: node_modules/babel-polyfill/browser.js:1
+#: node_modules/babel-polyfill/dist/polyfill.min.js:1
+msgid "has"
+msgstr ""
+
+#: node_modules/babel-polyfill/browser.js:1
+#: node_modules/babel-polyfill/dist/polyfill.min.js:1
+msgid "get"
+msgstr ""
+
+#: poem/static/poem/dist/create-bundle.js:40510
+#: poem/static/poem/dist/poem-bundle.js:73899
+msgid "Type"
+msgstr "类型"
+
+#: poem/static/poem/dist/create-bundle.js:40525
+msgid "There are no comments now. Be the FIRST to comment!"
+msgstr "当前还没有评论。"
+
+#: poem/static/poem/dist/poem-bundle.js:44446
+msgid "Login successfully."
+msgstr "登录成功"
+
+#: poem/static/poem/dist/poem-bundle.js:44494
+#: poem/static/poem/dist/poem-bundle.js:44630
+#: poem/static/poem/dist/poem-bundle.js:74690
+#, fuzzy
+#| msgid "User"
+msgid "Username"
+msgstr "用户"
+
+#: poem/static/poem/dist/poem-bundle.js:44495
+#: poem/static/poem/dist/poem-bundle.js:44631
+msgid "Password"
+msgstr "密码"
+
+#: poem/static/poem/dist/poem-bundle.js:44499
+#: poem/static/poem/dist/poem-bundle.js:74344
+msgid "Login"
+msgstr "登录"
+
+#: poem/static/poem/dist/poem-bundle.js:44500
+#: poem/static/poem/dist/poem-bundle.js:44641
+msgid "Cancel"
+msgstr "取消"
+
+#: poem/static/poem/dist/poem-bundle.js:44637
+#: poem/static/poem/dist/poem-bundle.js:74353
+msgid "Register"
+msgstr "注册"
+
+#: poem/static/poem/dist/poem-bundle.js:73904
+msgid "Go"
+msgstr "Let go!"
+
+#: poem/static/poem/dist/poem-bundle.js:73911
+#: poem/static/poem/dist/poem-bundle.js:74913
+msgid "Submit"
+msgstr "确定"
+
+#: poem/static/poem/dist/poem-bundle.js:74149
+#: poem/static/poem/dist/poem-bundle.js:74924
+msgid "Author"
+msgstr "作者"
+
+#: poem/static/poem/dist/poem-bundle.js:74365
+#: poem/static/poem/dist/poem-bundle.js:74689
+msgid "Me"
+msgstr "我"
+
+#: poem/static/poem/dist/poem-bundle.js:74374
+msgid "Create"
+msgstr "创作"
+
+#: poem/static/poem/dist/poem-bundle.js:74693
+msgid "Poems"
+msgstr "诗作"
+
+#: poem/static/poem/dist/poem-bundle.js:76145
+msgid "You need login to be here"
+msgstr "你需要登录以访问此页面"

@@ -11,3 +11,7 @@ header, main, footer{
         padding-left: 0px;
     }
 }
+
+.main {
+  margin-left: 256px;
+}
