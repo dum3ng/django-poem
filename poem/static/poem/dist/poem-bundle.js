@@ -64569,11 +64569,11 @@ var Sidebar = (0, _mobxReact.observer)(_class = function (_Component) {
         _Drawer2.default,
         null,
         _react2.default.createElement(
-          _MenuItem2.default,
-          null,
+          _my_link2.default,
+          { to: '/' },
           _react2.default.createElement(
-            _my_link2.default,
-            { to: '/' },
+            _MenuItem2.default,
+            null,
             'Home'
           )
         ),
@@ -68653,13 +68653,19 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(61);
-
 var _Card = __webpack_require__(496);
 
 var _Toggle = __webpack_require__(506);
 
 var _Toggle2 = _interopRequireDefault(_Toggle);
+
+var _my_link = __webpack_require__(513);
+
+var _my_link2 = _interopRequireDefault(_my_link);
+
+var _color_avatar = __webpack_require__(512);
+
+var _color_avatar2 = _interopRequireDefault(_color_avatar);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -68704,15 +68710,28 @@ var Poem = (_temp2 = _class = function (_Component) {
             actAsExpander: true,
             showExpandableButton: true },
           _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/profiles/' + poem.author.id + '/' },
-            poem.author.username
-          ),
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/' + poem.id + '/detail/' },
-            ' ',
-            poem.title
+            'div',
+            { style: { display: 'flex', flexDirection: 'row' } },
+            _react2.default.createElement(
+              'div',
+              { style: { display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around' } },
+              _react2.default.createElement(
+                _my_link2.default,
+                { to: '/profiles/' + poem.author.id + '/' },
+                _react2.default.createElement(_color_avatar2.default, { label: poem.author.username })
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                poem.author.username
+              )
+            ),
+            _react2.default.createElement(
+              _my_link2.default,
+              { style: { display: 'inline-block', paddingLeft: 30 }, to: '/' + poem.id + '/detail/' },
+              ' ',
+              poem.title
+            )
           )
         ),
         _react2.default.createElement(
@@ -68864,7 +68883,7 @@ var ColorAvatar = (_temp = _class = function (_Component) {
       return _react2.default.createElement(
         _Avatar2.default,
         { backgroundColor: getColor(this.props.label) },
-        this.props.children
+        this.props.children || this.props.label[0].toLocaleUpperCase()
       );
     }
   }]);
@@ -68898,7 +68917,7 @@ var _reactRouterDom = __webpack_require__(61);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var MyLink = function MyLink(props) {
-  return _react2.default.createElement(_reactRouterDom.Link, _extends({}, props, { style: { textDecoration: 'none' } }));
+  return _react2.default.createElement(_reactRouterDom.Link, _extends({}, props, { style: _extends({}, props.style, { textDecoration: 'none' }) }));
 };
 
 exports.default = MyLink;

@@ -31,7 +31,7 @@ class ColorAvatar extends Component {
   render() {
     return (
       <Avatar backgroundColor={getColor(this.props.label)}>
-        {this.props.children}
+        {this.props.children || this.props.label[0].toLocaleUpperCase()}
       </Avatar>
     )
   }

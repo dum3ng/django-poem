@@ -43,10 +43,12 @@ class Sidebar extends Component {
 
     return (
       <Drawer>
-        <MenuItem>
-          <MyLink to="/">Home</MyLink>
-        </MenuItem>
-        { items }
+        <MyLink to="/">
+          <MenuItem>
+            Home
+          </MenuItem>
+        </MyLink>
+        {items }
       </Drawer>
     )
   }
