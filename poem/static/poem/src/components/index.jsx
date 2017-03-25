@@ -42,7 +42,11 @@ class Index extends Component {
       //   </li>
       // ))
       render = poems.map((poem, index) => (
-        <Poem key={poem.id} poem={poem} />
+        <div  key={poem.id}>
+          <Poem poem={poem} />
+          <br />
+        </div>
+
       ))
     } else {
       render = <CircularProgress />

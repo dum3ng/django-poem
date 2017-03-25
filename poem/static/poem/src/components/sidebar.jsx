@@ -4,6 +4,7 @@ import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
 import { observer } from 'mobx-react'
 import store from '../db'
+import MyLink from './my_link'
 
 @observer
 class Sidebar extends Component {
@@ -11,29 +12,39 @@ class Sidebar extends Component {
   render() {
     const items = !this.props.store.isAuthenticated ? (
       <div>
-        <MenuItem>
-          <Link to='/login'>{gettext('Login')}</Link>
-        </MenuItem>
-        <MenuItem>
-          <Link to="/register">{gettext('Register')}</Link>
-        </MenuItem>
+        <MyLink to='/login'>
+          <MenuItem>
+            {gettext('Login')}
+          </MenuItem>
+        </MyLink>
+        <MyLink to="/register">
+          <MenuItem>
+            {gettext('Register')}
+          </MenuItem>
+        </MyLink>
       </div>) : (
         <div>
-          <MenuItem>
-            <Link to="/profile">{gettext('Me')}</Link>
-          </MenuItem>
-          <MenuItem>
-            <Link to="/create/">{gettext('Create')}</Link>
-          </MenuItem>
-          <MenuItem>
-            <Link to="/logout/">{gettext('Logout')}</Link>
-          </MenuItem>
+          <MyLink to="/profile">
+            <MenuItem>
+              {gettext('Me')}
+            </MenuItem>
+          </MyLink>
+          <MyLink to="/create/" >
+            <MenuItem>
+              {gettext('Create')}
+            </MenuItem>
+          </MyLink>
+          <MyLink to="/logout/">
+            <MenuItem>
+              {gettext('Logout')}
+            </MenuItem>
+          </MyLink>
         </div>)
 
     return (
       <Drawer>
         <MenuItem>
-          <Link to="/">Home</Link>
+          <MyLink to="/">Home</MyLink>
         </MenuItem>
         { items }
       </Drawer>

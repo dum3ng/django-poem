@@ -57,7 +57,11 @@ class Comments extends Component {
       <div>
         { commentBox }
         {this.state.comments.map(c => (
-          <Comment key={c.id} comment={c} />
+          <div  key={c.id}>
+            <Comment comment={c} />
+            <br />
+          </div>
+
         ))}
       </div>
     )
