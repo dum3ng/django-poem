@@ -8,6 +8,7 @@ class Type(models.Model):
     Type of a poem.
     """
     name = models.CharField(max_length=70)
+    validator = models.CharField(max_length=1000)
 
     def validate(self, poem):
         'Validate a poem if fullfil the pattern'

@@ -56,8 +56,8 @@ def detail(request, poem_id):
     poem_id = int(poem_id)
     poem = Poem.objects.filter(id=poem_id).first()
     result = PoemFullSerializer(poem)
-    r = random.random()*1.0+0.5
-    sleep(r)
+    # r = random.random()*1.0+0.5
+    # sleep(r)
     return JsonResponse(result.data, safe=False)
 
 @csrf_protect

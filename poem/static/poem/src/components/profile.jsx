@@ -1,23 +1,14 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Link, withRouter } from 'react-router-dom'
 import CircularProgress from 'material-ui/Circularprogress'
 import RaisedButton from 'material-ui/RaisedButton'
-import { observer } from 'mobx-react'
+import {List, ListItem} from 'material-ui/List'
 import Cookies from 'js.cookie'
-import store from '../db'
+import { wrapObservable} from '../utils'
+import MyLink from './my_link'
+import NeedLogin from '../common/need_login'
+import Divider from 'material-ui/Divider'
 
 
-const toLogin = withRouter(({history}) => {
-  let touch = e => { history.push('/login/') }
-  return (
-    <div>
-      You need log in to see this page.
-
-    </div>
-  )
-})
-
-@observer
 class Profile extends Component {
   constructor(props) {
     super(props)
@@ -41,18 +32,23 @@ class Profile extends Component {
     const { user, isAuthenticated } = this.props.store
     const profile = () => (
       <div>
-        { gettext('Me') }
-        { gettext('Username') }: { this.state.profile.username }
-        {gettext('Poems')}:
+        <h2 style={{ paddingBottom: 0, marginBottom: 5 }}>{ gettext('Me') }</h2>
+        <i> { this.state.profile.username }</i>
+        <br />
+       <Divider />
+       <strong>{gettext('Poems')}:</strong>
+        <List>
         { this.state.profile.poems.map(poem => (
-          <div key={poem.id}>
-            <div><Link to={`/${poem.id}/detail/`}>{poem.title}</Link></div>
-          </div>
+          <MyLink key={poem.id} to={`/${poem.id}/detail/`}>
+            <ListItem primaryText={poem.title}/>
+            <Divider />
+          </MyLink>
         ))}
+      </List>
       </div>)
-    const comp = this.state.profile.username ? profile() : <CircularProgress />
-      const toRender = isAuthenticated ? comp : <h1>go to ligin</h1>
-          console.log(toRender)
+    const comp = this.state.profile.username ? profile() : (<CircularProgress />)
+    const toRender = isAuthenticated ? comp : (<NeedLogin loginFrom='/profile' />)
+
     return (
       <div>
         { toRender }
@@ -62,5 +58,5 @@ class Profile extends Component {
   }
 }
 
-const ProfileWrap = props => <Profile store={store} {...props}/>
-export default ProfileWrap
+
+export default wrapObservable(Profile)

@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
 import CircularProgress from 'material-ui/Circularprogress'
+import MyLink from './my_link'
+import { List, ListItem } from 'material-ui/List'
+import Divider from 'material-ui/Divider'
+
 
 class Profiles extends Component {
   constructor(p) {
@@ -18,14 +21,18 @@ class Profiles extends Component {
   render() {
     const toRender = this.state.profile.username ? (
       <div>
-        <h3>{this.state.profile.username}</h3>
-        <h4>poems:</h4>
-        {this.state.profile.poems.map(poem => (
-          <div key={poem.id}>
-            <div><Link to={`/${poem.id}/detail/`}>{poem.title}</Link></div>
-          </div>
-        ))}
-      </div>
+         <h2>{this.state.profile.username}</h2>
+         <Divider />
+         <strong>{gettext('Poems')}:</strong>
+         <List>
+           { this.state.profile.poems.map(poem => (
+             <MyLink key={poem.id} to={`/${poem.id}/detail/`}>
+               <ListItem primaryText={poem.title}/>
+               <Divider />
+             </MyLink>
+           ))}
+      </List>
+        </div>
     ) : (<CircularProgress />)
     return (
       <div >

@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import Avatar from 'material-ui/Avatar'
 import ColorAvatar from './color_avatar'
+import MyLink from './my_link'
+import Paper from 'material-ui/Paper'
+import { VWrap, HWrap } from '../common'
 
 class Comment extends Component {
   static propTypes = {
@@ -10,10 +12,19 @@ class Comment extends Component {
   render() {
     const {comment} = this.props
     return (
-      <div>
-        <Link style={{ textDecoration: 'none' }}to={`/profiles/${comment.author.id}/`}><ColorAvatar label={comment.author.username}>{comment.author.username.charAt(0).toLocaleUpperCase()}</ColorAvatar></Link>
-        {comment.content}
-      </div>
+      <Paper style={{ flex: 1, padding: 20 }} zDepth={1}>
+        <HWrap style={{ justifyContent: 'initial'}}>
+          <VWrap style={{ width: 100 }}>
+            <MyLink style={{ display: 'inline-block', textDecoration: 'none' }}to={`/profiles/${comment.author.id}/`}>
+              <ColorAvatar label={comment.author.username} />
+            </MyLink>
+            <div>
+              {comment.author.username}
+            </div>
+          </VWrap>
+          {comment.content}
+        </HWrap>
+      </Paper>
     )
   }
 }

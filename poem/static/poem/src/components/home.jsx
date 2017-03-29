@@ -1,52 +1,45 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Link, Route, matchPath, Switch } from 'react-router-dom'
+import { Link, Route, matchPath, Switch } from 'react-router-dom'
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
-import { observer } from 'mobx-react'
-import store from '../db'
-import { connect } from '../rx-react'
 import Sidebar from './sidebar'
 import Profile from './Profile'
 import Profiles from './profiles'
 import Detail from './detail'
 import Create from './create'
 import Index from './index'
+import Header from './header'
 import { wrapObservable } from '../utils'
 
-const routes = [
-  {
-    path: '/:poem_id/detail/',
-    id: 0,
-    exact: true,
-    component: Detail,
-  },
-  {
-    path: '/profiles/:user_id/',
-    id: 1,
-  //  exact: true,
-    component: Profiles,
-  },
-  {
-    path: '/create/',
-    id: 2,
-   // exact: true,
-    component: Create,
-  },
-  {
-    path: '/',
-    id: 3,
-    exact: true,
-    component: Index,
-  },
-]
-
-@observer
 class Home extends Component {
+  // state = {
+  //   docked: true,
+  // }
 
-
+  componentDidMount() {
+    this.checkSize()
+    window.addEventListener('resize',  this.checkSize
+    )
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.checkSize)
+  }
+  checkSize = () => {
+    if (window.innerWidth < 820) {
+      this.props.store.isDocked = false
+      this.props.store.close()
+    } else {
+      this.props.store.isDocked = true
+      this.props.store.open()
+    }
+  }
+  // toggleSidebar = () => {
+  //   this.props.store.toggle()
+  // }
   render() {
     return (
       <div>
+        <Header onNavClick={this.toggleSidebar} />
         <Sidebar />
         <div className='main'>
           <Switch >
@@ -55,7 +48,7 @@ class Home extends Component {
             <Route path='/profile/' component={Profile} />
             <Route path='/create/' component={Create} />
             <Route path='/profiles/:user_id' component={Profiles} />
-             <Route  path="/" component={Index} />
+            <Route path="/" component={Index} />
           </Switch>
         </div>
       </div>

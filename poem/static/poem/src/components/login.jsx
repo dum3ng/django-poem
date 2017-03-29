@@ -4,6 +4,8 @@ import TextField from 'material-ui/TextField'
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
 import { postFetch, wrapObservable } from '../utils'
+import HWrap  from '../common/h_wrap'
+import VWrap  from '../common/v_wrap'
 
 class Login extends Component {
   state = {
@@ -34,14 +36,17 @@ class Login extends Component {
   }
   render() {
     return (
-      <Paper style={{ width: 400, margin: 'auto', flexDirection: 'column', justifyContent: 'wrap-around', alignItems: 'center' }} zDepth={1}>
-        <div>{this.state.message}</div>
-        <TextField floatingLabelText={gettext('Username')} value={this.state.username} type="text" onChange={this.onChange.bind(this, 'username')} />
-        <TextField floatingLabelText={gettext('Password')} value={this.state.password} type="password" onChange={this.onChange.bind(this, 'password')} />
-        <div style={{ flexDirection: 'row', justifyContent: 'wrap-around', alignItems: 'center' }}>
-          <RaisedButton primary label={gettext('Login')} onTouchTap={this.handleLogin} />
-          <RaisedButton label={gettext('Cancel')} onTouchTap={this.cancel} />
-        </div>
+      <Paper style={{ width: 400, margin: 'auto', padding: 20 }} zDepth={1}>
+        <VWrap>
+          <div>{this.state.message}</div>
+          <TextField floatingLabelText={gettext('Username')} value={this.state.username} type="text" onChange={this.onChange.bind(this, 'username')} />
+          <TextField floatingLabelText={gettext('Password')} value={this.state.password} type="password" onChange={this.onChange.bind(this, 'password')} />
+          <HWrap>
+            <RaisedButton primary label={gettext('Login')} onTouchTap={this.handleLogin} />
+            <RaisedButton label={gettext('Cancel')} onTouchTap={this.cancel} />
+          </HWrap>
+        </VWrap>
+
       </Paper>
     )
   }

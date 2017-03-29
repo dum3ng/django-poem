@@ -1,32 +1,46 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
-import { observer } from 'mobx-react'
+import { withRouter } from 'react-router-dom'
 import CircularProgress from 'material-ui/Circularprogress'
 import { List, ListItem } from 'material-ui/List'
-import Avatar  from 'material-ui/Avatar'
 import Comments from './comments'
+import MyLink from './my_link'
+import ColorAvatar from './color_avatar'
+import { wrapObservable } from '../utils'
+import {observer} from 'mobx-react'
 import store from '../db'
-
+import VWrap from '../common/v_wrap'
 
 function isEmpty(obj) {
   return Object.keys(obj).length === 0
 }
-@observer
+
+//@observer
 class Detail extends Component {
 
-  componentWillMount() {
+  componentDidMount() {
     const poem_id = this.props.match.params.poem_id
+    console.log(poem_id)
+    console.log(this.props.store)
+    console.log(this.props.user)
     fetch(`/django/poem/api/poems/${poem_id}/detail/`)
       .then(response => response.json())
-      .then((json) => { this.props.store.currentPoem = json })
+      .then((json) => {
+        console.log(json)
+        this.props.store.currentPoem = json
+        console.log(typeof this.props.store.currentPoem)})
   }
   render() {
     const poem = this.props.store.currentPoem
+
     const toRender = (poem && !isEmpty(poem) && poem.id === parseInt(this.props.match.params.poem_id)) ? (
       <div>
         <h3>{poem.title}</h3>
-        <Link to={`/profiles/${poem.author.id}/`}><Avatar>{poem.author.username.charAt(0).toLocaleUpperCase()}</Avatar></Link>
-        <p>{poem.content}</p>
+        <MyLink to={`/profiles/${poem.author.id}/`}><ColorAvatar label={poem.author.username} /></MyLink>
+        <VWrap style={{ marginBottom: 30 }}>
+          {poem.content.split(',').map(sentence => (
+            <div style={{ paddingTop: 10 }} key={sentence}>{sentence}</div>
+          ))}
+        </VWrap>
         <Comments poem_id={poem.id} />
       </div>
     ) : <CircularProgress />
@@ -37,5 +51,6 @@ class Detail extends Component {
     )
   }
 }
-const DetailWrap = props => <Detail store={store} {...props} />
-export default DetailWrap
+const DetailWrap = props => (<Detail store={store} {...props}/>)
+export default withRouter(wrapObservable(Detail))
+//export default DetailWrap

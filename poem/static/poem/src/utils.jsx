@@ -1,15 +1,19 @@
 import React from 'react'
-import store from './db'
 import Cookies from 'js.cookie'
+import store from './db'
+import { observer } from 'mobx-react'
 
-function wrapObservable (comp, name, toObserve) {
+function wrapObservable(Comp, name, toObserve) {
   if (!name) {
     toObserve = store
     name = "store"
   }
   const extra = {}
   extra[name] = toObserve
-  return props => React.createElement(comp, Object.assign({}, extra, props), props.children)
+  const Ob = observer(Comp)
+  return props => (<Ob {...extra} {...props} />)
+  //return observer(props => (<Comp {...props} {...extra} />))
+//  return observer(props => React.createElement(comp, Object.assign({}, extra, props), props.children))
 }
 
 function postFetch(url, data) {

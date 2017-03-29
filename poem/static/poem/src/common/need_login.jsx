@@ -2,6 +2,16 @@ import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import RaisedButton from 'material-ui/RaisedButton'
 import { wrapObservable } from '../utils'
+import MyLink from '../components/my_link'
+
+const LoginLink = wrapObservable(withRouter(({ store, location, children }) => {
+
+  return (
+    <MyLink to='/login' onTouchTap={() => {
+        console.log(location.pathname)
+        store.loginFrom = location.pathname
+      }}>{children}</MyLink>
+  )}))
 
 const NeedLogin = withRouter(({ history, ...rest }) => {
   const go = () => history.push('/login/')
@@ -15,3 +25,7 @@ const NeedLogin = withRouter(({ history, ...rest }) => {
 })
 
 export default wrapObservable(NeedLogin)
+
+export {
+  LoginLink,
+}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-24 14:07+0800\n"
+"POT-Creation-Date: 2017-03-29 10:36+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,89 +18,112 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: node_modules/babel-polyfill/browser.js:1
-#: node_modules/babel-polyfill/dist/polyfill.min.js:1
-msgid "delete"
-msgstr ""
-
-#: node_modules/babel-polyfill/browser.js:1
-#: node_modules/babel-polyfill/dist/polyfill.min.js:1
-msgid "has"
-msgstr ""
-
-#: node_modules/babel-polyfill/browser.js:1
-#: node_modules/babel-polyfill/dist/polyfill.min.js:1
-msgid "get"
-msgstr ""
-
-#: poem/static/poem/dist/create-bundle.js:40510
-#: poem/static/poem/dist/poem-bundle.js:73899
+#: poem/static/poem/dist/create-bundle.js:40539
+#: poem/static/poem/dist/poem-bundle.js:55148
 msgid "Type"
 msgstr "类型"
 
-#: poem/static/poem/dist/create-bundle.js:40525
+#: poem/static/poem/dist/create-bundle.js:40554
 msgid "There are no comments now. Be the FIRST to comment!"
 msgstr "当前还没有评论。"
 
-#: poem/static/poem/dist/poem-bundle.js:44446
+#: poem/static/poem/dist/poem-bundle.js:46159
 msgid "Login successfully."
 msgstr "登录成功"
 
-#: poem/static/poem/dist/poem-bundle.js:44494
-#: poem/static/poem/dist/poem-bundle.js:44630
-#: poem/static/poem/dist/poem-bundle.js:74690
-#, fuzzy
-#| msgid "User"
+#: poem/static/poem/dist/poem-bundle.js:46187
+#: poem/static/poem/dist/poem-bundle.js:46410
 msgid "Username"
-msgstr "用户"
+msgstr "用户名"
 
-#: poem/static/poem/dist/poem-bundle.js:44495
-#: poem/static/poem/dist/poem-bundle.js:44631
+#: poem/static/poem/dist/poem-bundle.js:46188
+#: poem/static/poem/dist/poem-bundle.js:46411
 msgid "Password"
 msgstr "密码"
 
-#: poem/static/poem/dist/poem-bundle.js:44499
-#: poem/static/poem/dist/poem-bundle.js:74344
+#: poem/static/poem/dist/poem-bundle.js:46192
+#: poem/static/poem/dist/poem-bundle.js:55792
+#: poem/static/poem/dist/poem-bundle.js:55843
 msgid "Login"
 msgstr "登录"
 
-#: poem/static/poem/dist/poem-bundle.js:44500
-#: poem/static/poem/dist/poem-bundle.js:44641
+#: poem/static/poem/dist/poem-bundle.js:46193
+#: poem/static/poem/dist/poem-bundle.js:46422
 msgid "Cancel"
 msgstr "取消"
 
-#: poem/static/poem/dist/poem-bundle.js:44637
-#: poem/static/poem/dist/poem-bundle.js:74353
+#: poem/static/poem/dist/poem-bundle.js:46363
+msgid "Contragulation. Going to home page."
+msgstr "注册成功! 转入主页"
+
+# msgid "Password"
+# msgstr "密码"
+#: poem/static/poem/dist/poem-bundle.js:46412
+msgid "Password Confirm"
+msgstr "密码确认"
+
+#: poem/static/poem/dist/poem-bundle.js:46418
+#: poem/static/poem/dist/poem-bundle.js:55801
+#: poem/static/poem/dist/poem-bundle.js:55843
 msgid "Register"
 msgstr "注册"
 
-#: poem/static/poem/dist/poem-bundle.js:73904
-msgid "Go"
-msgstr "Let go!"
-
-#: poem/static/poem/dist/poem-bundle.js:73911
-#: poem/static/poem/dist/poem-bundle.js:74913
-msgid "Submit"
-msgstr "确定"
-
-#: poem/static/poem/dist/poem-bundle.js:74149
-#: poem/static/poem/dist/poem-bundle.js:74924
-msgid "Author"
-msgstr "作者"
-
-#: poem/static/poem/dist/poem-bundle.js:74365
-#: poem/static/poem/dist/poem-bundle.js:74689
+#: poem/static/poem/dist/poem-bundle.js:54782
+#: poem/static/poem/dist/poem-bundle.js:55843
 msgid "Me"
 msgstr "我"
 
-#: poem/static/poem/dist/poem-bundle.js:74374
-msgid "Create"
-msgstr "创作"
-
-#: poem/static/poem/dist/poem-bundle.js:74693
+#: poem/static/poem/dist/poem-bundle.js:54795
+#: poem/static/poem/dist/poem-bundle.js:55689
 msgid "Poems"
 msgstr "诗作"
 
-#: poem/static/poem/dist/poem-bundle.js:76145
+#: poem/static/poem/dist/poem-bundle.js:55025
+msgid "write some comment"
+msgstr "评论一下"
+
+#: poem/static/poem/dist/poem-bundle.js:55027
+#: poem/static/poem/dist/poem-bundle.js:56113
+msgid "Submit"
+msgstr "确定"
+
+#: poem/static/poem/dist/poem-bundle.js:55160
+msgid "Go"
+msgstr "Let go!"
+
+#: poem/static/poem/dist/poem-bundle.js:55456
+msgid "All"
+msgstr "全部"
+
+#: poem/static/poem/dist/poem-bundle.js:55834
+msgid "Home"
+msgstr "主页"
+
+#: poem/static/poem/dist/poem-bundle.js:55843
+msgid "Create"
+msgstr "创作"
+
+#: poem/static/poem/dist/poem-bundle.js:55843
+msgid "Logout"
+msgstr "注销"
+
+#: poem/static/poem/dist/poem-bundle.js:56017
 msgid "You need login to be here"
 msgstr "你需要登录以访问此页面"
+
+#: poem/static/poem/dist/poem-bundle.js:56099
+msgid "Title"
+msgstr "标题"
+
+#: poem/static/poem/dist/poem-bundle.js:57005
+msgid "Poems of cabin"
+msgstr "木屋诗社"
+
+#~ msgid "User"
+#~ msgstr "用户"
+
+#~ msgid "write your masterpiece here."
+#~ msgstr "写下你的大作"
+
+#~ msgid "Author"
+#~ msgstr "作者"

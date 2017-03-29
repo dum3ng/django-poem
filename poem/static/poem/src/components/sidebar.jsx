@@ -1,51 +1,51 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
-import { observer } from 'mobx-react'
-import store from '../db'
 import MyLink from './my_link'
+import { wrapObservable } from '../utils'
+import {LoginLink} from '../common/need_login'
 
-@observer
 class Sidebar extends Component {
+  //  static propTypes = {
+  //   open: React.PropTypes.bool.isRequired,
+  //   docked: React.PropTypes.bool.isRequired,
+  //   toggle: React.PropTypes.func.isRequired,
+  // }
+  static inItems = [['/login', gettext('Login')],
+                    ['/register', gettext('Register')]]
+  static outItems = [['/profile', gettext('Me')],
+                     ['/create/', gettext('Create')],
+                     ['/logout/', gettext('Logout')]]
 
   render() {
     const items = !this.props.store.isAuthenticated ? (
       <div>
-        <MyLink to='/login'>
-          <MenuItem>
-            {gettext('Login')}
-          </MenuItem>
-        </MyLink>
-        <MyLink to="/register">
+        <LoginLink><MenuItem>{gettext('Login')}</MenuItem></LoginLink>
+        <MyLink to='/register/'>
           <MenuItem>
             {gettext('Register')}
           </MenuItem>
         </MyLink>
       </div>) : (
         <div>
-          <MyLink to="/profile">
+          {Sidebar.outItems.map(item => (
+            <MyLink key={item[0]} to={item[0]}>
             <MenuItem>
-              {gettext('Me')}
+              {item[1]}
             </MenuItem>
           </MyLink>
-          <MyLink to="/create/" >
-            <MenuItem>
-              {gettext('Create')}
-            </MenuItem>
-          </MyLink>
-          <MyLink to="/logout/">
-            <MenuItem>
-              {gettext('Logout')}
-            </MenuItem>
-          </MyLink>
+        ))}
         </div>)
 
     return (
-      <Drawer>
+      <Drawer
+        open={this.props.store.drawerOpen}
+        docked={this.props.store.isDocked}
+        onRequestChange={(open) => this.props.store.drawerOpen=open}>
         <MyLink to="/">
           <MenuItem>
-            Home
+            {gettext('Home')}
           </MenuItem>
         </MyLink>
         {items }
@@ -54,5 +54,6 @@ class Sidebar extends Component {
   }
 }
 
-const SidebarWrap = () => <Sidebar store={store} />
-export default SidebarWrap
+//const SidebarWrap = () => <Sidebar store={store} />
+export default wrapObservable(Sidebar)
+//export default SidebarWrap

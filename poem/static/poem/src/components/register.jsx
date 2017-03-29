@@ -7,6 +7,8 @@ import observer from 'mobx-react'
 import Cookies from 'js.cookie'
 import store from '../db'
 import { wrapObservable, postFetch } from '../utils'
+import HWrap  from '../common/h_wrap'
+import VWrap  from '../common/v_wrap'
 
 
 class Register extends Component {
@@ -24,7 +26,7 @@ class Register extends Component {
         if (json.error) {
           this.setState({message: json.error})
         }else {
-          this.setState({message: "Contragulation. Going to home page."})
+          this.setState({message: gettext("Contragulation. Going to home page.")})
           this.props.store.login(json)
           setTimeout(() => {
             this.props.history.push('/')
@@ -50,13 +52,14 @@ class Register extends Component {
       ))
     }
     return (
-      <Paper>
-        <div>{ msg }</div>
-        <TextField floatingLabelText={gettext('Username')} value={this.state.username} onChange={this.change.bind(this, 'username')}/>
-        <TextField floatingLabelText={gettext('Password')} value={this.state.password1} type="password" onChange={this.change.bind(this, 'password1')}/>
-        <TextField floatingLabelText={gettext('Password Confirm')} value={this.state.password2} type="password" onChange={this.change.bind(this, 'password2')}/>
-        <div>
-          <RaisedButton
+      <Paper style={{ width: 400, margin: 'auto', padding: 20 }}>
+        <VWrap>
+          <div>{ msg }</div>
+          <TextField floatingLabelText={gettext('Username')} value={this.state.username} onChange={this.change.bind(this, 'username')}/>
+          <TextField floatingLabelText={gettext('Password')} value={this.state.password1} type="password" onChange={this.change.bind(this, 'password1')}/>
+          <TextField floatingLabelText={gettext('Password Confirm')} value={this.state.password2} type="password" onChange={this.change.bind(this, 'password2')}/>
+          <HWrap>
+            <RaisedButton
             primary
             label={gettext('Register')}
             onTouchTap={this.handleRegister}
@@ -65,7 +68,9 @@ class Register extends Component {
             label={gettext('Cancel')}
             onTouchTap={this.cancel}
             />
-        </div>
+          </HWrap>
+
+        </VWrap>
       </Paper>
     )
   }

@@ -48,18 +48,20 @@ class Comments extends Component {
   render() {
     let commentBox = <div />
     if (this.props.store.isAuthenticated) {
-      commentBox = (<div>
-                    <TextField floatingLabelText='write some comment' multiLine onChange={this.onChange} value={this.state.content}/>
-                    <RaisedButton onTouchTap={this.makeComment} label={gettext('Submit')} />
-                    </div>)
+      commentBox = (
+        <div>
+          <div>
+            <TextField floatingLabelText={gettext('write some comment')} multiLine onChange={this.onChange} value={this.state.content}/>
+          </div>
+          <RaisedButton onTouchTap={this.makeComment} label={gettext('Submit')} />
+        </div>)
     }
     return (
       <div>
         { commentBox }
         {this.state.comments.map(c => (
-          <div  key={c.id}>
+          <div key={c.id}>
             <Comment comment={c} />
-            <br />
           </div>
 
         ))}

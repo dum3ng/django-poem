@@ -6,8 +6,9 @@ import RaisedButton from 'material-ui/RaisedButton'
 import CircularProgress from 'material-ui/CircularProgress'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
-import NeedLogin from './need_login'
-
+import NeedLogin from '../common/need_login'
+import Compose from './compose'
+import { VWrap } from '../common'
 
 class Create extends Component {
   state = {
@@ -23,16 +24,7 @@ class Create extends Component {
       .then(res => res.json())
       .then(json => this.setState({ types: json }))
   }
-  makePost = () => {
-    postFetch('/django/poem/api/poems/new/', { type_id: this.state.type_id, title: this.state.title, content: this.state.content })
-      .then(res => res.json())
-      .then(json => {
-        if(json.error){
-          return
-        }
-        this.props.history.push(`/${json.id}/detail/`)
-      })
-  }
+
   handleChange = (field, e, value) => {
     const d = {}
     d[field] = value
@@ -45,22 +37,43 @@ class Create extends Component {
     this.setState({ typeSelected: true, type })
   }
   getSelectComponent = () => (
-      <div>
-        <SelectField floatingLabelText={gettext('Type')} value={this.state.type_id} onChange={this.handleTypeChange}>
+    <VWrap>
+      <SelectField
+        floatingLabelText={gettext('Type')}
+        value={this.state.type_id}
+        onChange={this.handleTypeChange}>
         { this.state.types.map(type => (
-          <MenuItem key={type.id} value={type.id} primaryText={type.name} />
-        ) )}
-      </SelectField>
-      <RaisedButton label={gettext('Go')} onTouchTap={this.handleTypeSelect} disabled={!this.state.type_id} />
-      </div>
+          <MenuItem
+            key={type.id}
+            value={type.id}
+            primaryText={type.name}
+          />)) }
+    </SelectField>
+      <RaisedButton
+    label={gettext('Go')}
+    onTouchTap={this.handleTypeSelect}
+    disabled={!this.state.type_id} />
+      </VWrap>
   )
+  // getComposeComponent = () => (
+  //   <div>
+  //     <h3>{this.state.type.name} </h3>
+  //     <TextField
+  //       value={this.state.title}
+  //       onChange={this.handleChange.bind(this, 'title')}
+  //       floatingLabelText={gettext('Title')} />
+  //     <TextField
+  //       multiLine
+  //       value={this.state.content}
+  //       onChange={this.handleChange.bind(this, 'content')}
+  //       floatingLabelText={gettext('write your masterpiece here.')} />
+  //     <RaisedButton
+  //       label={gettext('Submit')}
+  //       onTouchTap={this.makePost} />
+  //   </div>
+  // )
   getComposeComponent = () => (
-    <div>
-      <h3>{this.state.type.name} </h3>
-      <TextField value={this.state.title} onChange={this.handleChange.bind(this, 'title')} floatingLabelText={gettext('Title')} />
-      <TextField multiLine value={this.state.content} onChange={this.handleChange.bind(this, 'content')} floatingLabelText={gettext('write your masterpiece here.')} />
-      <RaisedButton label={gettext('Submit')} onTouchTap={this.makePost} />
-    </div>
+    <Compose type={this.state.type} />
   )
   getToRender = () => {
     let toRender = (<NeedLogin loginFrom={this.props.location.pathname} />)
@@ -75,7 +88,7 @@ class Create extends Component {
   }
   render() {
     return (
-      <div>thsi is create page.
+      <div>
         { this.getToRender() }
       </div>
     )
