@@ -22,7 +22,7 @@ from . import index
 from django.conf.urls import url, include
 
 site_patterns = [
-    url(r'^/$', index.view, name='index'),
+    url(r'^$', index.view, name='index'),
     url(r'^poem/', include('poem.urls')),
     url(r'^jsi18n/$', JavaScriptCatalog.as_view(domain='djangojs'), name='javascript-catalog'),
     url(r'^admin/', admin.site.urls),
