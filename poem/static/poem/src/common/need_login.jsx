@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import React from 'react'
+import { withRouter } from 'react-router-dom'
 import RaisedButton from 'material-ui/RaisedButton'
 import { wrapObservable } from '../utils'
 import MyLink from '../components/my_link'
@@ -7,8 +7,7 @@ import MyLink from '../components/my_link'
 const LoginLink = wrapObservable(withRouter(({ store, location, children }) => {
 
   return (
-    <MyLink to='/login' onTouchTap={() => {
-        console.log(location.pathname)
+    <MyLink to="/login" onTouchTap={() => {
         store.loginFrom = location.pathname
       }}>{children}</MyLink>
   )}))

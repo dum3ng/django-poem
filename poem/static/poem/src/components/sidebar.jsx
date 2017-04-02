@@ -1,17 +1,12 @@
 import React, { Component } from 'react'
-import { withRouter, Link } from 'react-router-dom'
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
 import MyLink from './my_link'
 import { wrapObservable } from '../utils'
-import {LoginLink} from '../common/need_login'
+import { LoginLink } from '../common/need_login'
 
 class Sidebar extends Component {
-  //  static propTypes = {
-  //   open: React.PropTypes.bool.isRequired,
-  //   docked: React.PropTypes.bool.isRequired,
-  //   toggle: React.PropTypes.func.isRequired,
-  // }
+
   static inItems = [['/login', gettext('Login')],
                     ['/register', gettext('Register')]]
   static outItems = [['/profile', gettext('Me')],
@@ -54,6 +49,4 @@ class Sidebar extends Component {
   }
 }
 
-//const SidebarWrap = () => <Sidebar store={store} />
 export default wrapObservable(Sidebar)
-//export default SidebarWrap

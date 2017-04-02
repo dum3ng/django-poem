@@ -10849,29 +10849,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _desc, _value, _class, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8; // import Rx from 'rx'
-// import EventEmitter from 'event-emitter'
-
-// const db = {
-//   isAuthenticated: false,
-// }
-// const eventAuth = new EventEmitter()
-// const subAuth = new EventEmitter()
-// const subscription = Rx.Observable.fromEvent(eventAuth, 'login')
-//       .subscribe((b) => {
-//         db.isAuthenticated = true
-//         subAuth.emit('change', db.isAuthenticated)})
-// Rx.Observable.fromEvent(eventAuth, 'logout')
-//   .subscribe((b) => {
-//     db.isAuthenticated = false
-//     subAuth.emit('change', db.isAuthenticated)})
-
-
-// // subs
-
-
-// export default db
-// export { eventAuth, subAuth }
+var _desc, _value, _class, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8;
 
 var _mobx = __webpack_require__(329);
 
@@ -46032,11 +46010,6 @@ var Home = function (_Component) {
 
   _createClass(Home, [{
     key: 'componentDidMount',
-
-    // state = {
-    //   docked: true,
-    // }
-
     value: function componentDidMount() {
       this.checkSize();
       window.addEventListener('resize', this.checkSize);
@@ -46048,10 +46021,6 @@ var Home = function (_Component) {
     }
   }, {
     key: 'render',
-
-    // toggleSidebar = () => {
-    //   this.props.store.toggle()
-    // }
     value: function render() {
       return _react2.default.createElement(
         'div',
@@ -46077,8 +46046,6 @@ var Home = function (_Component) {
 
   return Home;
 }(_react.Component);
-
-//const HomeWrap = props => <Home store={store} {...props} />
 
 exports.default = (0, _utils.wrapObservable)(Home);
 
@@ -46115,13 +46082,7 @@ var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 
 var _utils = __webpack_require__(78);
 
-var _h_wrap = __webpack_require__(498);
-
-var _h_wrap2 = _interopRequireDefault(_h_wrap);
-
-var _v_wrap = __webpack_require__(500);
-
-var _v_wrap2 = _interopRequireDefault(_v_wrap);
+var _common = __webpack_require__(499);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -46159,7 +46120,6 @@ var Login = function (_Component) {
           setTimeout(function () {
             return _this.props.history.push(_this.props.store.loginFrom || '/');
           }, 800);
-          // goto home page
         }
       });
     }, _this.cancel = function () {
@@ -46176,7 +46136,7 @@ var Login = function (_Component) {
         _Paper2.default,
         { style: { width: 400, margin: 'auto', padding: 20 }, zDepth: 1 },
         _react2.default.createElement(
-          _v_wrap2.default,
+          _common.VWrap,
           null,
           _react2.default.createElement(
             'div',
@@ -46186,7 +46146,7 @@ var Login = function (_Component) {
           _react2.default.createElement(_TextField2.default, { floatingLabelText: gettext('Username'), value: this.state.username, type: 'text', onChange: this.onChange.bind(this, 'username') }),
           _react2.default.createElement(_TextField2.default, { floatingLabelText: gettext('Password'), value: this.state.password, type: 'password', onChange: this.onChange.bind(this, 'password') }),
           _react2.default.createElement(
-            _h_wrap2.default,
+            _common.HWrap,
             null,
             _react2.default.createElement(_RaisedButton2.default, { primary: true, label: gettext('Login'), onTouchTap: this.handleLogin }),
             _react2.default.createElement(_RaisedButton2.default, { label: gettext('Cancel'), onTouchTap: this.cancel })
@@ -46220,9 +46180,9 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _utils = __webpack_require__(78);
-
 var _reactRouterDom = __webpack_require__(36);
+
+var _utils = __webpack_require__(78);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -46298,27 +46258,13 @@ var _Raisedbutton = __webpack_require__(463);
 
 var _Raisedbutton2 = _interopRequireDefault(_Raisedbutton);
 
-var _mobxReact = __webpack_require__(121);
-
-var _mobxReact2 = _interopRequireDefault(_mobxReact);
-
 var _js = __webpack_require__(284);
 
 var _js2 = _interopRequireDefault(_js);
 
-var _db = __webpack_require__(123);
-
-var _db2 = _interopRequireDefault(_db);
-
 var _utils = __webpack_require__(78);
 
-var _h_wrap = __webpack_require__(498);
-
-var _h_wrap2 = _interopRequireDefault(_h_wrap);
-
-var _v_wrap = __webpack_require__(500);
-
-var _v_wrap2 = _interopRequireDefault(_v_wrap);
+var _common = __webpack_require__(499);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -46399,7 +46345,7 @@ var Register = function (_Component) {
         _Paper2.default,
         { style: { width: 400, margin: 'auto', padding: 20 } },
         _react2.default.createElement(
-          _v_wrap2.default,
+          _common.VWrap,
           null,
           _react2.default.createElement(
             'div',
@@ -46410,7 +46356,7 @@ var Register = function (_Component) {
           _react2.default.createElement(_TextField2.default, { floatingLabelText: gettext('Password'), value: this.state.password1, type: 'password', onChange: this.change.bind(this, 'password1') }),
           _react2.default.createElement(_TextField2.default, { floatingLabelText: gettext('Password Confirm'), value: this.state.password2, type: 'password', onChange: this.change.bind(this, 'password2') }),
           _react2.default.createElement(
-            _h_wrap2.default,
+            _common.HWrap,
             null,
             _react2.default.createElement(_Raisedbutton2.default, {
               primary: true,
@@ -55184,24 +55130,6 @@ var Create = function (_Component) {
         return _this2.setState({ types: json });
       });
     }
-    // getComposeComponent = () => (
-    //   <div>
-    //     <h3>{this.state.type.name} </h3>
-    //     <TextField
-    //       value={this.state.title}
-    //       onChange={this.handleChange.bind(this, 'title')}
-    //       floatingLabelText={gettext('Title')} />
-    //     <TextField
-    //       multiLine
-    //       value={this.state.content}
-    //       onChange={this.handleChange.bind(this, 'content')}
-    //       floatingLabelText={gettext('write your masterpiece here.')} />
-    //     <RaisedButton
-    //       label={gettext('Submit')}
-    //       onTouchTap={this.makePost} />
-    //   </div>
-    // )
-
   }, {
     key: 'render',
     value: function render() {
@@ -55231,8 +55159,6 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(1);
@@ -55244,8 +55170,6 @@ var _reactRouterDom = __webpack_require__(36);
 var _Circularprogress = __webpack_require__(288);
 
 var _Circularprogress2 = _interopRequireDefault(_Circularprogress);
-
-var _List = __webpack_require__(459);
 
 var _comments = __webpack_require__(503);
 
@@ -55260,8 +55184,6 @@ var _color_avatar = __webpack_require__(432);
 var _color_avatar2 = _interopRequireDefault(_color_avatar);
 
 var _utils = __webpack_require__(78);
-
-var _mobxReact = __webpack_require__(121);
 
 var _db = __webpack_require__(123);
 
@@ -55282,8 +55204,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function isEmpty(obj) {
   return Object.keys(obj).length === 0;
 }
-
-//@observer
 
 var Detail = function (_Component) {
   _inherits(Detail, _Component);
@@ -55306,9 +55226,7 @@ var Detail = function (_Component) {
       fetch('/django/poem/api/poems/' + poem_id + '/detail/').then(function (response) {
         return response.json();
       }).then(function (json) {
-        console.log(json);
         _this2.props.store.currentPoem = json;
-        console.log(_typeof(_this2.props.store.currentPoem));
       });
     }
   }, {
@@ -55357,7 +55275,6 @@ var DetailWrap = function DetailWrap(props) {
   return _react2.default.createElement(Detail, _extends({ store: _db2.default }, props));
 };
 exports.default = (0, _reactRouterDom.withRouter)((0, _utils.wrapObservable)(Detail));
-//export default DetailWrap
 
 /***/ }),
 /* 506 */
@@ -55432,23 +55349,12 @@ var Index = function (_Component) {
         });
       });
     }
-    //  goDetail = (e) => this.props.store.currentPoemId =
-
   }, {
     key: 'render',
     value: function render() {
       var render = void 0;
       var poems = this.props.store.poems;
       if (poems) {
-        // render = poems.map((poem, index) => (
-        //   <li key={ poem.id }>
-        //     <Link  to={ `/${poem.id}/detail/` } >
-        //     { poem.title }
-        //     { gettext('Author') }:
-        //     { poem.author.username }
-        //     </Link>
-        //   </li>
-        // ))
         render = _react2.default.createElement(
           _Tabs.Tabs,
           null,
@@ -55735,8 +55641,6 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(36);
-
 var _Drawer = __webpack_require__(438);
 
 var _Drawer2 = _interopRequireDefault(_Drawer);
@@ -55772,12 +55676,6 @@ var Sidebar = (_temp = _class = function (_Component) {
 
   _createClass(Sidebar, [{
     key: 'render',
-
-    //  static propTypes = {
-    //   open: React.PropTypes.bool.isRequired,
-    //   docked: React.PropTypes.bool.isRequired,
-    //   toggle: React.PropTypes.func.isRequired,
-    // }
     value: function render() {
       var _this2 = this;
 
@@ -55842,11 +55740,7 @@ var Sidebar = (_temp = _class = function (_Component) {
 
   return Sidebar;
 }(_react.Component), _class.inItems = [['/login', gettext('Login')], ['/register', gettext('Register')]], _class.outItems = [['/profile', gettext('Me')], ['/create/', gettext('Create')], ['/logout/', gettext('Logout')]], _temp);
-
-//const SidebarWrap = () => <Sidebar store={store} />
-
 exports.default = (0, _utils.wrapObservable)(Sidebar);
-//export default SidebarWrap
 
 /***/ }),
 /* 511 */,
@@ -55868,6 +55762,14 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _reactRouterDom = __webpack_require__(36);
 
+var _MuiThemeProvider = __webpack_require__(183);
+
+var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
+
+var _reactTapEventPlugin = __webpack_require__(184);
+
+var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
+
 var _home = __webpack_require__(441);
 
 var _home2 = _interopRequireDefault(_home);
@@ -55883,14 +55785,6 @@ var _register2 = _interopRequireDefault(_register);
 var _logout = __webpack_require__(443);
 
 var _logout2 = _interopRequireDefault(_logout);
-
-var _MuiThemeProvider = __webpack_require__(183);
-
-var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
-
-var _reactTapEventPlugin = __webpack_require__(184);
-
-var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -55994,7 +55888,6 @@ var LoginLink = (0, _utils.wrapObservable)((0, _reactRouterDom.withRouter)(funct
   return _react2.default.createElement(
     _my_link2.default,
     { to: '/login', onTouchTap: function onTouchTap() {
-        console.log(location.pathname);
         store.loginFrom = location.pathname;
       } },
     children

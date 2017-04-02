@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import TextField from 'material-ui/TextField'
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/Raisedbutton'
-import observer from 'mobx-react'
 import Cookies from 'js.cookie'
-import store from '../db'
 import { wrapObservable, postFetch } from '../utils'
-import HWrap  from '../common/h_wrap'
-import VWrap  from '../common/v_wrap'
-
+import { HWrap, VWrap } from '../common'
 
 class Register extends Component {
   state = {

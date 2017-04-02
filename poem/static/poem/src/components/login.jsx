@@ -4,8 +4,7 @@ import TextField from 'material-ui/TextField'
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
 import { postFetch, wrapObservable } from '../utils'
-import HWrap  from '../common/h_wrap'
-import VWrap  from '../common/v_wrap'
+import { HWrap, VWrap } from '../common'
 
 class Login extends Component {
   state = {
@@ -22,7 +21,6 @@ class Login extends Component {
           this.props.store.login(json)
           this.setState({ message: gettext('Login successfully.') })
           setTimeout(() => this.props.history.push(this.props.store.loginFrom || '/'), 800)
-          // goto home page
         }
       })
 

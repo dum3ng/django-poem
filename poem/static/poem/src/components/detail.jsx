@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import CircularProgress from 'material-ui/Circularprogress'
-import { List, ListItem } from 'material-ui/List'
 import Comments from './comments'
 import MyLink from './my_link'
 import ColorAvatar from './color_avatar'
 import { wrapObservable } from '../utils'
-import {observer} from 'mobx-react'
 import store from '../db'
 import VWrap from '../common/v_wrap'
 
@@ -14,7 +12,6 @@ function isEmpty(obj) {
   return Object.keys(obj).length === 0
 }
 
-//@observer
 class Detail extends Component {
 
   componentDidMount() {
@@ -25,9 +22,8 @@ class Detail extends Component {
     fetch(`/django/poem/api/poems/${poem_id}/detail/`)
       .then(response => response.json())
       .then((json) => {
-        console.log(json)
         this.props.store.currentPoem = json
-        console.log(typeof this.props.store.currentPoem)})
+      })
   }
   render() {
     const poem = this.props.store.currentPoem
@@ -53,4 +49,3 @@ class Detail extends Component {
 }
 const DetailWrap = props => (<Detail store={store} {...props}/>)
 export default withRouter(wrapObservable(Detail))
-//export default DetailWrap

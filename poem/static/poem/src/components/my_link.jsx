@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {wrapObservable} from '../utils'
+import { wrapObservable } from '../utils'
 
 const MyLink = ({store, ...rest}) => (
   <Link {...rest}

@@ -12,9 +12,6 @@ import Header from './header'
 import { wrapObservable } from '../utils'
 
 class Home extends Component {
-  // state = {
-  //   docked: true,
-  // }
 
   componentDidMount() {
     this.checkSize()
@@ -33,9 +30,7 @@ class Home extends Component {
       this.props.store.open()
     }
   }
-  // toggleSidebar = () => {
-  //   this.props.store.toggle()
-  // }
+
   render() {
     return (
       <div>
@@ -43,7 +38,6 @@ class Home extends Component {
         <Sidebar />
         <div className='main'>
           <Switch >
-
             <Route path='/:poem_id/detail/' component={Detail} />
             <Route path='/profile/' component={Profile} />
             <Route path='/create/' component={Create} />
@@ -55,7 +49,5 @@ class Home extends Component {
     )
   }
 }
-
-//const HomeWrap = props => <Home store={store} {...props} />
 
 export default wrapObservable(Home)

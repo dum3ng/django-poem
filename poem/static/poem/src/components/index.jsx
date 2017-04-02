@@ -3,7 +3,6 @@ import CircularProgress from 'material-ui/CircularProgress'
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 import { Tabs, Tab } from 'material-ui/Tabs'
-
 import { wrapObservable} from '../utils'
 import Poem from './poem'
 
@@ -32,20 +31,11 @@ class Index extends Component {
 
 
   }
-  //  goDetail = (e) => this.props.store.currentPoemId =
+
   render() {
     let render
     const poems = this.props.store.poems
     if (poems) {
-      // render = poems.map((poem, index) => (
-      //   <li key={ poem.id }>
-      //     <Link  to={ `/${poem.id}/detail/` } >
-      //     { poem.title }
-      //     { gettext('Author') }:
-      //     { poem.author.username }
-      //     </Link>
-      //   </li>
-      // ))
       render = (
         <Tabs>
           <Tab label={gettext('All')}>

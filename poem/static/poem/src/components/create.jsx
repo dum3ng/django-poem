@@ -55,23 +55,6 @@ class Create extends Component {
     disabled={!this.state.type_id} />
       </VWrap>
   )
-  // getComposeComponent = () => (
-  //   <div>
-  //     <h3>{this.state.type.name} </h3>
-  //     <TextField
-  //       value={this.state.title}
-  //       onChange={this.handleChange.bind(this, 'title')}
-  //       floatingLabelText={gettext('Title')} />
-  //     <TextField
-  //       multiLine
-  //       value={this.state.content}
-  //       onChange={this.handleChange.bind(this, 'content')}
-  //       floatingLabelText={gettext('write your masterpiece here.')} />
-  //     <RaisedButton
-  //       label={gettext('Submit')}
-  //       onTouchTap={this.makePost} />
-  //   </div>
-  // )
   getComposeComponent = () => (
     <Compose type={this.state.type} />
   )

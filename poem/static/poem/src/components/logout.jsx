@@ -1,6 +1,6 @@
 import React from 'react'
-import { wrapObservable } from '../utils'
 import { withRouter } from 'react-router-dom'
+import { wrapObservable } from '../utils'
 
 class Logout extends React.Component {
   static propTypes = {
